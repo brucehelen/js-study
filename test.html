@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var book = {};
+
+        Object.defineProperties(book, {
+            _year: {
+                value: 2004
+            },
+            edition: {
+                value: 1
+            },
+            year: {
+                get: function() {
+                    return this._year;
+                },
+                set: function(newValue) {
+                    if (newValue > 2004) {
+                        this._year = newValue;
+                        var v = newValue - 2004;
+                        console.log(v);
+                        this.edition += newValue - 2004;
+                        this.edition = 2;
+                        console.log('this.edition ' + this.edition);
+                    }
+                }
+            }
+        });
+
+        book.year = 2005;
+        console.log(book.edition);
+        console.log(book.year);
+        console.log(book.edition);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
